@@ -489,7 +489,7 @@ public class WikitudePlugin extends CordovaPlugin implements ArchitectUrlListene
 			String tempFilePath = params.getString("ARchitectWorldURL");
 
 
-			String stringResourceClassName = cordova.getActivity().getPackageName() + ".R$string";
+			/*String stringResourceClassName = cordova.getActivity().getPackageName() + ".R$string";
 			Class<?> c = Class.forName(stringResourceClassName);
 			Field[] fields = c.getFields();
 
@@ -508,7 +508,7 @@ public class WikitudePlugin extends CordovaPlugin implements ArchitectUrlListene
 						tempFilePath= new StringBuffer(tempFilePath).insert(wwwIndex, stringPrefix+"/").toString();
 					}
 				}
-			}
+			}*/
 			final String filePath = tempFilePath;
 
 			int featuresTemp = 0;
