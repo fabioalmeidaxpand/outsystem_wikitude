@@ -75,7 +75,7 @@
         <source-file src="src/android/libs/wikitudesdk.aar" target-dir="libs/" />
 
         <!-- copy res -->
-        <source-file src="src/android/res" target-dir="res/" />
+        <source-file src="src/android/res/layout" target-dir="res/" />
 
         <!-- adds WikitudePlugin in project's config.xml -->
         <config-file target="res/xml/config.xml" parent="/*">
