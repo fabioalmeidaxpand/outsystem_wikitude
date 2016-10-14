@@ -1,3 +1,4 @@
+cordova.define("com.wikitude.phonegap.WikitudePlugin.WikitudePlugin", function(require, exports, module) {
 
 	/**
 	 * Release date: 11.03.16
@@ -85,6 +86,7 @@
 		}]);
 
 		// We add an event listener on the resume and pause event of the application life-cycle
+		document.addEventListener("destroy", this.onDestroy, false)
 		document.addEventListener("resume", this.onResume, false);
 		document.addEventListener("pause", this.onPause, false);
 		document.addEventListener("backbutton", this.onBackButton, false);
@@ -257,6 +259,16 @@
 	};
 
 	/**
+	 *	This function gets called every time the application is about to become inactive.
+	 */
+	WikitudePlugin.prototype.onDestroy = function() {
+
+		// Call the Wikitude SDK that the application did become inactive
+		cordova.exec(this.onWikitudeOK, this.onWikitudeError, "WikitudePlugin", "onDestroy", [""]);
+	};
+
+
+	/**
 	 *	A generic success callback used inside this wrapper.
 	 */
 	WikitudePlugin.prototype.onWikitudeOK = function() {};
@@ -271,3 +283,4 @@
 	/* Export a new WikitudePlugin instance */
 	var wikitudePlugin = new WikitudePlugin();
 	module.exports = wikitudePlugin;
+});
